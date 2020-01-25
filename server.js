@@ -6,6 +6,8 @@
 // ==============================================================================
 
 var express = require("express");
+var apiRoutes = require("./routes/apiRoutes")(app);
+var htmlRoutes = require("./routes/htmlRoutes")(app);
 
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -16,11 +18,19 @@ var express = require("express");
 var app = express();
 
 // Sets an initial port. We"ll use this later in our listener
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3307;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// ================================================================================
+// I need to call the app.use. how to
+app.use(express.static("public"));
+app.use("/api", apiRoutes);
+app.use("/", htmlRoutes);
+
+// ================================================================================
+
 
 // ================================================================================
 // ROUTER
