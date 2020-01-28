@@ -6,30 +6,31 @@ const fs = require("fs");
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
-class STORE {constructor(){
-    this.lastID=0
-};
+class STORE {
+    constructor() {
+        this.lastID = 0
+    };
 
-read() {
-    return readFileAsync(./db/db.json)
-    //  UTF8
-}
+    read() {
 
-write(note) {
+        return readFileAsync("/db/db", "utf8");
+    }
 
-}
+    write(note) {
 
-getNotes() {
+    }
 
-}
+    getNotes() {
 
-addNotes(note) {
+    }
 
-}
+    addNotes(note) {
 
-deleteNotes(id) {
+    }
 
-}
+    deleteNotes(id) {
+
+    }
 
 };
 
