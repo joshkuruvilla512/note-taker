@@ -5,12 +5,12 @@
 // Series of npm packages that we will use to give our server useful functionality
 // ==============================================================================
 
-var express = require("express");
-var fs = require("fs");
-var path = require("path");
+const express = require("express");
+const fs = require("fs");
+const path = require("path");
 
-var apiRoutes = require("./routes/apiRoutes")(app);
-var htmlRoutes = require("./routes/htmlRoutes")(app);
+var apiRoutes = require("./routes/apiRoutes");
+var htmlRoutes = require("./routes/htmlRoutes");
 
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -48,7 +48,7 @@ app.use("/", htmlRoutes);
 // The below code effectively "starts" our server
 // =============================================================================
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log("App listening on PORT: " + PORT);
 });
 
