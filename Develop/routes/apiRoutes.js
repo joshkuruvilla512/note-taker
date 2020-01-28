@@ -6,6 +6,7 @@
 
 const store = require("../db/store");
 const router = require("express").Router();
+const db = require("../db/db");
 
 
 
@@ -21,12 +22,9 @@ const router = require("express").Router();
 
 //   GET API notes 
   Router.get("/api/notes", function(req, res) {
-    res.json(tableData);
+    res.json(db);
   });
 
-  Router.get("/api/waitlist", function(req, res) {
-    res.json(waitListData);
-  });
 
   // API POST Requests
   // Below code handles when a user submits a form and thus submits data to the server.
@@ -36,7 +34,7 @@ const router = require("express").Router();
   // Then the server saves the data to the tableData array)
   // ---------------------------------------------------------------------------
 
-  Router.post("/api/tables", function(req, res) {
+  Router.post("/api/notes", function(req, res) {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
@@ -61,6 +59,6 @@ const router = require("express").Router();
 
     res.json({ ok: true });
   });
-  
+
   module.exports = function(Router)
 
