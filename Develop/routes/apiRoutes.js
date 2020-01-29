@@ -80,5 +80,5 @@ router.delete("/api/notes/:id", function (req, res) {
     fs.writeFile(dbJsonPath, JSON.stringify(db))
 })
 
-module.exports = router
+module.exports = router;
 

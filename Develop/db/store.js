@@ -17,21 +17,26 @@ class STORE {
     }
 
     write(note) {
-
+        return writeFileAsync("/db/db", JSON.stringify(note))
     }
 
     getNotes() {
+        return this.read()
+        .then(notes => {
+            let parseNotes;
+            
+                try {
+                    
+                    parseNotes = [].concat(JSON.parse(notes));
+                }
+                catch (err) {
+                    parseNotes = [];
+                }
+                return parseNotes;
+            
+        }) 
+        }
+    };
 
-    }
-
-    addNotes(note) {
-
-    }
-
-    deleteNotes(id) {
-
-    }
-
-};
-
+   
 module.exports = new STORE();
