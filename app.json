@@ -8,6 +8,7 @@
         "node",
         "notes"
     ],
+    "language": "nodejs",
     "website": "null",
     "repository": "https://github.com/joshkuruvilla512/note-taker",
     "success_url": "/",
@@ -25,6 +26,7 @@
     "environments": {
         "test": {
             "scripts": {
+    
                 "test": "jest"
             }
         }
