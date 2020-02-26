@@ -6,7 +6,7 @@
 
 const store = require("../db/store");
 const router = require("express").Router();
-const db = require("../db/db");
+const db = require("../db/db.json");
 const fs = require("fs");
 
 
@@ -40,7 +40,7 @@ router.post("/api/notes", function (req, res) {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
-    let dbJsonPath = path.join(__dirname, "../db/db");
+    let dbJsonPath = path.join(__dirname, "../db/db.json");
     let newNote = req.body;
     let highestID = 20;
 
@@ -67,7 +67,7 @@ router.post("/api/notes", function (req, res) {
 
 
 router.delete("/api/notes/:id", function (req, res) {
-    let dbJsonPath = path.join(__dirname, "../db/db");
+    let dbJsonPath = path.join(__dirname, "../db/db.json");
     for (let index = 0; index < db.length; index++) {
         const note = db[index];
         if (note.id == req.params.id) {
